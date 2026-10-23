@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Habit & Focus Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Glowing Orbs -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- PART 1: Name Registration Screen -->
+  <div id="welcomeScreen" class="screen welcome-screen">
+    <div class="welcome-card animate-pop">
+      <div class="badge-icon">🚀</div>
+      <h2 id="timeGreeting">Hello!</h2>
+      <p>Apna naam darj karein taaki aapka custom growth hub shuru ho sake:</p>
+      <input id="userNameInput" type="text" maxlength="30" placeholder="Aapka naam, e.g. Aman" aria-label="Your name">
+      <button id="startBtn" class="primary-btn glow-btn">Aage Badhein &rarr;</button>
+    </div>
+  </div>
+
+  <!-- PART 2: 5-Second Welcome Splash Animation Screen -->
+  <div id="welcomeSplash" class="screen splash-screen" hidden>
+    <div class="splash-content animate-float">
+      <div class="splash-ring"></div>
+      <h1 id="splashTitle">Welcome!</h1>
+      <p id="splashSubtitle">Aapka din shubh aur utsah se bhara ho ✨</p>
+      <div class="loading-bar"><div id="splashProgress"></div></div>
+    </div>
+  </div>
+
+  <!-- PART 3: Main Dashboard with Navigation Tabs -->
+  <main class="app screen" id="mainApp" hidden>
+    <header class="app-header animate-slide">
+      <div>
+        <h1 id="userGreetingTitle">Dashboard</h1>
+        <p id="todayLabel"></p>
+      </div>
+      <div class="header-actions">
+        <button id="changeNameBtn" class="icon-btn" title="Settings" aria-label="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs animate-slide" aria-label="App Navigation">
+      <button class="tab-btn active" data-tab="habitsTab">🔥 Habits</button>
+      <button class="tab-btn" data-tab="timerTab">⏱️ Custom Timer</button>
+      <button class="tab-btn" data-tab="leaderboardTab">🏆 Leaderboard</button>
+    </nav>
+
+    <!-- TAB 1: Habits Dashboard -->
+    <div id="habitsTab" class="tab-content active">
+      <!-- Weekly progress -->
+      <section class="progress animate-slide" aria-label="Weekly progress">
+        <div class="progress-text">
+          <strong id="percent">0%</strong>
+          <span id="progressDetail">This week's consistency</span>
+        </div>
+        <div class="bar"><div id="barFill"></div></div>
+      </section>
+
+      <!-- Smart message -->
+      <p id="smartMsg" class="smart animate-slide" hidden></p>
+
+      <!-- Add habit -->
+      <div class="add animate-slide">
+        <input id="habitInput" type="text" maxlength="40" placeholder="New habit, e.g. Workout for 45 mins" aria-label="Habit name">
+        <button id="addBtn" class="primary-btn glow-btn">+ Add</button>
+      </div>
+
+      <!-- Habit list -->
+      <ul id="habitList"></ul>
+      <p id="empty" class="empty">No habits yet. Add your first goal above!</p>
+    </div>
+
+    <!-- TAB 2: Custom Timer Hub -->
+    <div id="timerTab" class="tab-content" hidden>
+      <div class="timer-card animate-slide">
+        <h2>Custom Focus Zone</h2>
+        <p class="timer-desc">Apne hisaab se minutes set karein aur focus ke sath kaam karein.</p>
+        
+        <!-- Custom Minute Input Box -->
+        <div class="custom-timer-input-group">
+          <label for="customMinutesInput">Set Minutes:</label>
+          <input type="number" id="customMinutesInput" min="1" max="180" value="25" aria-label="Set minutes">
+          <button id="setCustomTimeBtn" class="secondary-btn">Set Time</button>
+        </div>
+
+        <div class="timer-display" id="hubTimerDisplay">25:00</div>
+        
+        <div class="timer-controls">
+          <button id="hubStartBtn" class="primary-btn glow-btn">Start Timer</button>
+          <button id="hubResetBtn" class="secondary-btn">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: Gamified Leaderboard -->
+    <div id="leaderboardTab" class="tab-content" hidden>
+      <div class="leaderboard-card animate-slide">
+        <h2>Achievers Leaderboard</h2>
+        <p class="timer-desc">Aapki consistency aur streaks ke adhaar par ranking.</p>
+        <ul id="leaderboardList" class="leaderboard-list">
+          <!-- Dynamic Leaderboard Items -->
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
